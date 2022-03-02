@@ -45,6 +45,8 @@ const loadDetails = id => {
 const diplayDetails = details => {
     console.log(details);
     const phoneDetails = document.getElementById('phone-details');
+    const mainFeatures = details.mainFeatures;
+    const sensors = details.mainFeatures.sensors;
 
     // clear previous details
     phoneDetails.textContent = '';
@@ -57,15 +59,21 @@ const diplayDetails = details => {
     <div class="col-lg-4 col-sm-12 ps-5 py-4">
         <img src="${details.image}" class="w-75 rounded-start" alt="...">
     </div>
-    <div class="col-lg-8 col-sm-12 py-4 pe-5">
-        <div class="card-body">
-            <h5 class="card-title">${details.brand} ${details.name}</h5>
-            <p class="card-text"><small class="text-muted">${details.releaseDate == "" ? 'Release date: Not available' : details.releaseDate}</small></p >
-    <p class="card-text">This is a wider card with supporting text below as a natural
-        lead-in to
-        additional content. This content is a little bit longer.</p>
+        <div class="col-lg-8 col-sm-12 py-4 pe-5">
+            <div class="card-body">
+                <h5 class="card-title fs-3 fw-bold">${details.brand} ${details.name}</h5>
+                <p class="card-text">
+                <small class="text-muted">${details.releaseDate == "" ? 'Release date: Not available' : details.releaseDate}
+                </small>
+                </p>
+                <p class="card-text">Display: ${mainFeatures.displaySize}</p>
+                <p class="card-text">Chipset: ${mainFeatures.chipSet}</p>
+                <p class="card-text">Memory: ${mainFeatures.memory}</p>
+                <p class="card-text">Storage: ${mainFeatures.storage}</p>
+                <p class="card-text">Sensors: ${sensors.toString()}</p>
+                
+            </div >
         </div >
-    </div >
     </div >
     `
     phoneDetails.appendChild(detailsDiv);
