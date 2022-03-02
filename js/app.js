@@ -15,6 +15,7 @@ loadPhone();
 
 const displayPhone = phones => {
     const phoneContainer = document.getElementById('phone-container');
+    phoneContainer.textContent = '';
     for (const phone of phones) {
         const div = document.createElement('div');
         div.classList.add('col');
@@ -23,7 +24,7 @@ const displayPhone = phones => {
         <div class="card h-100">
         <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
         <div class="card-body">
-        <h5 class="card-title">${phone.phone_name}</h5>
+        <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
         <a href="#" class="btn btn-primary bg-gradient">Details</a>
         </div>
         </div>`
