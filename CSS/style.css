@@ -9,5 +9,12 @@
     color: #27A3FF;
 }
 
+.error{
+    
+    display: none;
+}
 
+.error-banner{
+    height: calc(100vh - 264px);
+}
 

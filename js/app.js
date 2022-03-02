@@ -13,14 +13,26 @@ const loadPhone = () => {
 
 
 const displayPhone = phones => {
-    // 20 phone items show 
-    const phonesList20 = phones.slice(0, 20);
-    const phoneContainer = document.getElementById('phone-container');
-    phoneContainer.textContent = '';
-    for (const phone of phonesList20) {
-        const div = document.createElement('div');
-        div.classList.add('col');
-        div.innerHTML = `
+
+    if (phones.length !== 0) {
+        //hide error message
+        document.getElementById('error-text').style.display = 'none';
+
+        // 20 phone items show 
+        const phonesList20 = phones.slice(0, 20);
+        const phoneContainer = document.getElementById('phone-container');
+
+        //clean previous search
+        phoneContainer.textContent = '';
+
+        //clean detais box if open
+        const phoneDetails = document.getElementById('phone-details');
+
+        phoneDetails.textContent = '';
+        for (const phone of phonesList20) {
+            const div = document.createElement('div');
+            div.classList.add('col');
+            div.innerHTML = `
         <div class="card h-100">
         <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
         <div class="card-body">
@@ -28,9 +40,16 @@ const displayPhone = phones => {
         <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary bg-gradient mt-1 rounded">Details</button>
         </div>
         </div>`
-        phoneContainer.appendChild(div);
+            phoneContainer.appendChild(div);
 
+        }
     }
+    else {
+        // show error message
+        document.getElementById('error-text').style.display = 'block';
+    }
+
+
 
 }
 
