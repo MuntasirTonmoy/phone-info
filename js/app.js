@@ -62,7 +62,6 @@ const loadDetails = id => {
 }
 
 const diplayDetails = details => {
-    console.log(details);
     const phoneDetails = document.getElementById('phone-details');
     const mainFeatures = details.mainFeatures;
     const sensors = details.mainFeatures.sensors;
@@ -96,6 +95,10 @@ const diplayDetails = details => {
     </div >
     `
     phoneDetails.appendChild(detailsDiv);
+
+    // go to details section 
+    window.location.href = "#details";
+
 
 }
 
