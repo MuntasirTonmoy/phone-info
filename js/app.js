@@ -20,9 +20,10 @@ const displayPhone = phones => {
 
         // 20 phone items show 
         const phonesList20 = phones.slice(0, 20);
-        const phoneContainer = document.getElementById('phone-container');
+
 
         //clean previous search
+        const phoneContainer = document.getElementById('phone-container');
         phoneContainer.textContent = '';
 
         //clean detais box if open
@@ -47,6 +48,14 @@ const displayPhone = phones => {
     else {
         // show error message
         document.getElementById('error-text').style.display = 'block';
+
+        //clean previous search
+        const phoneContainer = document.getElementById('phone-container');
+        phoneContainer.textContent = '';
+
+        //clean detais box if open
+        const phoneDetails = document.getElementById('phone-details');
+        phoneDetails.textContent = '';
     }
 
 
