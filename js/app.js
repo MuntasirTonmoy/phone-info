@@ -20,7 +20,6 @@ const displayPhone = phones => {
     for (const phone of phonesList20) {
         const div = document.createElement('div');
         div.classList.add('col');
-        console.log(phone);
         div.innerHTML = `
         <div class="card h-100">
         <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
@@ -54,19 +53,20 @@ const diplayDetails = details => {
     detailsDiv.classList.add('card');
     detailsDiv.innerHTML = `
     <div class="row g-0">
+    <div class="bg-light border title-text fw-bold p-2">Phone Details</div>
     <div class="col-lg-4 col-sm-12 ps-5 py-4">
         <img src="${details.image}" class="w-75 rounded-start" alt="...">
     </div>
     <div class="col-lg-8 col-sm-12 py-4 pe-5">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural
-                lead-in to
-                additional content. This content is a little bit longer.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-    </div>
-    </div>
+            <h5 class="card-title">${details.brand} ${details.name}</h5>
+            <p class="card-text"><small class="text-muted">${details.releaseDate == "" ? 'Release date: Not available' : details.releaseDate}</small></p >
+    <p class="card-text">This is a wider card with supporting text below as a natural
+        lead-in to
+        additional content. This content is a little bit longer.</p>
+        </div >
+    </div >
+    </div >
     `
     phoneDetails.appendChild(detailsDiv);
 
