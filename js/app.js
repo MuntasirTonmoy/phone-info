@@ -11,7 +11,6 @@ const loadPhone = () => {
 
 }
 
-loadPhone();
 
 const displayPhone = phones => {
     // 20 phone items show 
@@ -27,12 +26,49 @@ const displayPhone = phones => {
         <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
         <div class="card-body">
         <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
-        <button class="btn btn-primary bg-gradient mt-1">Details</button>
+        <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary bg-gradient mt-1 rounded">Details</button>
         </div>
         </div>`
-        phoneContainer.append(div);
+        phoneContainer.appendChild(div);
 
     }
+
+}
+
+const loadDetails = id => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(phoneDetails => diplayDetails(phoneDetails.data));
+
+}
+
+const diplayDetails = details => {
+    console.log(details);
+    const phoneDetails = document.getElementById('phone-details');
+
+    // clear previous details
+    phoneDetails.textContent = '';
+
+    const detailsDiv = document.createElement('div');
+    detailsDiv.classList.add('card');
+    detailsDiv.innerHTML = `
+    <div class="row g-0">
+    <div class="col-lg-4 col-sm-12 ps-5 py-4">
+        <img src="${details.image}" class="w-75 rounded-start" alt="...">
+    </div>
+    <div class="col-lg-8 col-sm-12 py-4 pe-5">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural
+                lead-in to
+                additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+    </div>
+    </div>
+    `
+    phoneDetails.appendChild(detailsDiv);
 
 }
 
