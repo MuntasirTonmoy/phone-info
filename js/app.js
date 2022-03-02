@@ -27,19 +27,19 @@ const displayPhone = phones => {
 
         //clean detais box if open
         const phoneDetails = document.getElementById('phone-details');
-
         phoneDetails.textContent = '';
+
         for (const phone of phonesList20) {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
-        <div class="card h-100">
-        <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
-        <div class="card-body">
-        <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
-        <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary bg-gradient mt-1 rounded">Details</button>
-        </div>
-        </div>`
+            <div class="card h-100">
+                <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
+                    <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary bg-gradient mt-1 rounded">Details</   button>
+                </div>
+            </div>`
             phoneContainer.appendChild(div);
 
         }
@@ -74,7 +74,7 @@ const diplayDetails = details => {
     detailsDiv.classList.add('card');
     detailsDiv.innerHTML = `
     <div class="row g-0">
-    <div class="bg-light border title-text fw-bold p-2">Phone Details</div>
+    <div class="bg-light border title-text fw-bold p-2"><div class="d-flex justify-content-between"><span>Phone Details</span> <button type="button" onclick="closeDetails()" class="btn-close" aria-label="Close"></button></div></div>
     <div class="col-lg-4 col-sm-12 ps-5 py-4">
         <img src="${details.image}" class="w-75 rounded-start" alt="...">
     </div>
@@ -97,5 +97,10 @@ const diplayDetails = details => {
     `
     phoneDetails.appendChild(detailsDiv);
 
+}
+
+const closeDetails = () => {
+    const phoneDetails = document.getElementById('phone-details');
+    phoneDetails.textContent = '';
 }
 
