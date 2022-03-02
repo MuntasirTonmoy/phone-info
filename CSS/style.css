@@ -1,0 +1,8 @@
+/* Google fonts added */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+.title-text{
+    font-family: 'Playfair Display', serif;
+    color: #27A3FF;
+}
+
