@@ -14,9 +14,11 @@ const loadPhone = () => {
 loadPhone();
 
 const displayPhone = phones => {
+    // 20 phone items show 
+    const phonesList20 = phones.slice(0, 20);
     const phoneContainer = document.getElementById('phone-container');
     phoneContainer.textContent = '';
-    for (const phone of phones) {
+    for (const phone of phonesList20) {
         const div = document.createElement('div');
         div.classList.add('col');
         console.log(phone);
@@ -25,10 +27,11 @@ const displayPhone = phones => {
         <img src="${phone.image}" class="card-img-top w-50 mx-auto mt-3"  alt="...">
         <div class="card-body">
         <h5 class="card-title">${phone.brand} ${phone.phone_name}</h5>
-        <a href="#" class="btn btn-primary bg-gradient">Details</a>
+        <button class="btn btn-primary bg-gradient mt-1">Details</button>
         </div>
         </div>`
         phoneContainer.append(div);
+
     }
 
 }
